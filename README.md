@@ -1,0 +1,1 @@
+# ror-tstprj-blog-digest
