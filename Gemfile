@@ -30,7 +30,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '= 1.4.1', require: false
+gem 'bootsnap', '1.4.1', require: false
+gem 'devise', '4.6.2'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
