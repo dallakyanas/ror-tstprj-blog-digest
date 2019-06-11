@@ -10,6 +10,40 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header >
+      <div class="container">
+        <nav class="navbar navbar-inverse">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <%= link_to "Блог", root_path, :class => 'navbar-brand'%>
+              <!-- <a class="navbar-brand" href="#">SampleApp</a> -->
+            </div>
+            <ul class="nav navbar-nav">
+              <li><%= link_to "Новости", root_path %></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <% if user_signed_in? %>
+                <li><p class="navbar-text">Здравствуйте, <%= current_user.email %></p></li>
+                <li><%= link_to 'Выйти', destroy_user_session_path, :method => :delete %></li>
+              <% else %>
+                  <li><%= link_to 'Войти', new_user_session_path %></li>
+                  <li><%= link_to 'Зарегистрироваться', new_user_registration_path %></li>
+              <% end %>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <div class="container">
+      <% if notice %>
+        <p class="alert alert-success"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
+
+      <%= yield %>
+    </div>
   </body>
 </html>
