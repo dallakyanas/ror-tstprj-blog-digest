@@ -3,13 +3,15 @@
 
 <% @blog_posts.each do |blog_post| %>
 <div>
-  <%= link_to 'Show', blog_post %>
+  <%= link_to blog_post.title, blog_post %>
   <%= link_to 'Читать...', blog_post, :class => 'text_success' %>
 </div>
 
 <% end %>
-
+<br>
 <p>Хорошего дня!</p>
+<br>
+<i>С уважением, команда Blog-Digest.test</i>
 
 <hr>
 <p>
