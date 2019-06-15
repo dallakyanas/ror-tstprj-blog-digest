@@ -1,0 +1,17 @@
+<h1>Ежедневная рассылка от Blog-Digest.test!</h1>
+
+
+<% @blog_posts.each do |blog_post| %>
+<div>
+  <%= link_to 'Show', blog_post %>
+  <%= link_to 'Читать...', blog_post, :class => 'text_success' %>
+</div>
+
+<% end %>
+
+<p>Хорошего дня!</p>
+
+<hr>
+<p>
+  Отписаться | На сайт
+</p>
