@@ -1,10 +1,13 @@
 class UserMailer < ApplicationMailer
   default from: 'info@blog-digest.test'
-  # layout 'mailer'
+  layout 'user_mailer'
 
   def welcome_email
     @user = params[:user]
-    # @url  = 'http://example.com/login'
-    mail(to: @user.email, subject: 'Welcome to BlogDigest.test')
+    make_bootstrap_mail(
+      to: @user.email,
+      # from: 'from@example.com',
+      subject: 'Welcome to Blog-Digest.test',
+    )
   end
 end

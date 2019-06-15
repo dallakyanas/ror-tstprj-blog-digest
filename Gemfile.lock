@@ -42,6 +42,8 @@ GEM
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    addressable (2.6.0)
+      public_suffix (>= 2.0.2, < 4.0)
     arel (9.0.0)
     autoprefixer-rails (9.6.0)
       execjs
@@ -49,6 +51,11 @@ GEM
     bindex (0.7.0)
     bootsnap (1.4.1)
       msgpack (~> 1.0)
+    bootstrap-email (0.2.5)
+      actionmailer (>= 3, < 6)
+      nokogiri (~> 1.6)
+      premailer-rails (~> 1.9)
+      rails (>= 3, < 6)
     bootstrap-sass (3.4.1)
       autoprefixer-rails (>= 5.2.1)
       sassc (>= 2.0.0)
@@ -65,6 +72,8 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.5)
     crass (1.0.4)
+    css_parser (1.7.0)
+      addressable
     devise (4.6.2)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -77,6 +86,7 @@ GEM
     ffi (1.11.1-x86-mingw32)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    htmlentities (4.3.4)
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
     jbuilder (2.9.1)
@@ -99,6 +109,14 @@ GEM
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
     pg (0.20.0-x86-mingw32)
+    premailer (1.11.1)
+      addressable
+      css_parser (>= 1.6.0)
+      htmlentities (>= 4.0.0)
+    premailer-rails (1.10.2)
+      actionmailer (>= 3, < 6)
+      premailer (~> 1.7, >= 1.7.9)
+    public_suffix (3.1.0)
     puma (3.12.1)
     rack (2.0.7)
     rack-test (1.1.0)
@@ -196,6 +214,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (= 1.4.1)
+  bootstrap-email (= 0.2.5)
   bootstrap-sass (= 3.4.1)
   byebug
   coffee-rails (~> 4.2)
