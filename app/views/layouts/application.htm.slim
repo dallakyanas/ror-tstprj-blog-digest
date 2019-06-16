@@ -1,0 +1,49 @@
+doctype html
+html
+  head
+    title RorTstprjBlogDigest
+    == csrf_meta_tags
+    == csp_meta_tag
+
+    == stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    == javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+  body
+    header >
+      div class="container"
+        nav class="navbar navbar-inverse"
+          div class="container-fluid"
+            div class="navbar-header"
+              == link_to "Блог", root_path, :class => 'navbar-brand'
+
+            ul class="nav navbar-nav">
+              li
+                == link_to "Новости", root_path
+
+            ul class="nav navbar-nav navbar-right"
+              - if user_signed_in?
+                li
+                  p class="navbar-text"
+                    Здравствуйте,
+                    == link_to current_user.email, edit_user_registration_path
+                li
+                  == link_to 'Выйти', destroy_user_session_path, :method => :delete
+              - else
+                  li
+                    == link_to 'Войти', new_user_session_path
+                  li
+                    == link_to 'Зарегистрироваться', new_user_registration_path
+
+    div class="container"
+      - if notice
+          p class="alert alert-success"
+            == notice
+
+      - if alert
+          p class="alert alert-danger"
+            == alert
+
+      == yield
+      hr
+      == debug(params) if Rails.env.development?
+

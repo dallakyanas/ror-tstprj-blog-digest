@@ -34,6 +34,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '1.4.1', require: false
 gem 'devise', '4.6.2'
 gem 'crono', '1.1.2'
+gem 'slim', '4.0.1'
 # gem 'daemons' # not for windows sadly
 
 group :development, :test do
