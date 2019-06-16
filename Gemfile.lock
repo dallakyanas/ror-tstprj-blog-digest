@@ -72,6 +72,9 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.5)
     crass (1.0.4)
+    crono (1.1.2)
+      activerecord (>= 4.0)
+      activesupport (>= 4.0)
     css_parser (1.7.0)
       addressable
     devise (4.6.2)
@@ -218,6 +221,7 @@ DEPENDENCIES
   bootstrap-sass (= 3.4.1)
   byebug
   coffee-rails (~> 4.2)
+  crono (= 1.1.2)
   devise (= 4.6.2)
   duktape
   jbuilder (~> 2.5)
