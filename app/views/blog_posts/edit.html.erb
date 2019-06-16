@@ -1,6 +1,12 @@
 <h1>Editing Blog Post</h1>
-
-<%= render 'form', blog_post: @blog_post %>
-
-<%= link_to 'Show', @blog_post %> |
-<%= link_to 'Back', blog_posts_path %>
+<div class="row">
+  <div class="col-sm-10 col-sm-offset-1 col-md-5 col-md-offset-1">
+    <%= render 'form', blog_post: @blog_post %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-10 col-sm-offset-1 col-md-5 col-md-offset-1">
+    <br>
+    <%= link_to 'Cancel', @blog_post, :class => "btn btn-primary" %>
+  </div>
+</div>

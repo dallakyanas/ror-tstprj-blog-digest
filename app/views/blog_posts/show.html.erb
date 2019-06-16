@@ -1,19 +1,31 @@
-<p>
-  <strong>Title:</strong>
-  <%= @blog_post.title %>
-</p>
+<div class="row">
+    <div class="col-sm-8 col-sm-offset-1 col-md-7 col-md-offset-2">
+      <h2><%= @blog_post.title %></h2>
+      <hr>
 
-<p>
-  <strong>Content:</strong>
-  <%= @blog_post.content %>
-</p>
+      <article><p class="text-justify">
+          <%= @blog_post.content %>
+      </p></article>
+    </div>
+</div>
+<div class="row">
+  <div class="col-sm-3 col-sm-offset-7 col-md-2 col-md-offset-8">
+    <br>
+    <i><%= @blog_post.publish_date.strftime("%d.%m.%Y %H:%M") %></i>
+  </div>
 
-<p>
-  <strong>Publish date:</strong>
-  <%= @blog_post.publish_date %>
-</p>
+</div>
+<div class="row">
+  <div class="col-sm-3 col-sm-offset-1 col-md-offset-2">
+    <% if current_user.is_admin? %>
+      <%= link_to 'Back', blog_posts_path, :class => "btn btn-primary" %>
+      <%= link_to 'Edit', edit_blog_post_path(@blog_post), :class => "btn btn-success" %>
+    <% end %>
 
-<% if current_user.is_admin? %>
-  <%= link_to 'Edit', edit_blog_post_path(@blog_post) %> |
-<% end %>
-<%= link_to 'Back', blog_posts_path %>
+  </div>
+</div>
+
+
+
+
+
