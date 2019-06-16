@@ -1,5 +1,5 @@
 
-h2 Sign up
+h2 Регистрация
 
 div class="row"
   div class="col-sm-4 col-sm-offset-4 col-md-2 col-md-offset-5"
@@ -15,7 +15,7 @@ div class="row"
         == f.label :password, :class => 'control-label'
         - if @minimum_password_length
           em
-            | (#{@minimum_password_length} characters minimum)
+            | (#{@minimum_password_length} символов минимум)
 
         br
         == f.password_field :password, autocomplete: "new-password", :class => 'form-control'
@@ -26,5 +26,5 @@ div class="row"
         == f.password_field :password_confirmation, autocomplete: "new-password", :class => 'form-control'
 
       div class="actions"
-        == f.submit "Sign up", :class => 'btn btn-success'
+        == f.submit "Зарегистрироваться", :class => 'btn btn-success'
 
