@@ -1,5 +1,13 @@
 <h1>Blog Posts</h1>
 
+
+<% if current_user.is_admin? %>
+  <div>
+    <%= link_to '+', new_blog_post_path, class: "btn btn-success" %>
+  </div>
+<% end %>
+<br>
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -22,8 +30,12 @@
             <%= blog_post.publish_date.strftime("%H:%M") %>
         </td>
         <td><%= link_to 'Show', blog_post %></td>
-        <td><%= link_to 'Edit', edit_blog_post_path(blog_post) %> </td>
-        <td><%= link_to 'Destroy', blog_post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_user.is_admin? %>
+          <td><%= link_to 'Edit', edit_blog_post_path(blog_post) %> </td>
+          <td><%= link_to 'Destroy', blog_post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% else %>
+          <td></td><td></td>
+        <% end %>
       </tr>
     <% end #loop
        else
@@ -35,6 +47,4 @@
   </tbody>
 </table>
 
-<br>
 
-<%= link_to 'New Blog Post', new_blog_post_path, class: "btn btn-primary" %>
