@@ -74,7 +74,7 @@ class BlogPostsController < ApplicationController
     end
 
     def check_access
-      if !current_user.is_admin?
+      if !current_user or !current_user.is_admin?
         respond_to do |format|
           format.html { redirect_to blog_posts_url, alert: 'Permission denied' }
           format.json { head :no_content }
