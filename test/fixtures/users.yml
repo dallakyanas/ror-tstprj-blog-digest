@@ -4,8 +4,22 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
+daily_user: {
+  email: test1@test.test,
+  encrypted_password: "$2a$11$1eB9DwQV5nyJ6OncEoITbeRivmTKmEKiRuHBEX2RhuqM3tEUyybP2",
+  subscription_type: 'daily'
+}
 # column: value
 #
-two: {}
+two: {
+  email: test2@test.test,
+  encrypted_password: "$2a$11$1eB9DwQV5nyJ6OncEoITbeRivmTKmEKiRuHBEX2RhuqM3tEUyybP2",
+  subscription_type: 'weekly'
+}
+
+tree: {
+  email: test3@test.test,
+  encrypted_password: "$2a$11$1eB9DwQV5nyJ6OncEoITbeRivmTKmEKiRuHBEX2RhuqM3tEUyybP2",
+  subscription_type: 'no'
+}
 # column: value

@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  content: MyText
+  title: TestTitle1
+  content: Very short Text
   publish_date: 2019-06-10 00:27:30
 
 two:
-  title: MyString
-  content: MyText
-  publish_date: 2019-06-10 00:27:30
+  title: TestTitle2
+  content: Eu fugiat sit laboris deserunt ut ut exercitation veniam esse deserunt nulla duis sed mollit dolor quis cupidatat adipisicing nisi esse consectetur qui labore exercitation exercitation deserunt aliqua cupidatat in do consectetur exercitation quis ex cillum ut minim enim anim minim in tempor non fugiat laboris quis irure sit eu labore ut fugiat anim esse adipisicing quis labore culpa eiusmod qui aliquip elit in officia excepteur duis cupidatat aliqua cillum fugiat enim sit sunt occaecat sed ullamco dolore proident eu minim minim ad veniam incididunt sed id tempor dolore consectetur tempor est incididunt laboris qui dolor ad officia incididunt mollit veniam sint adipisicing est anim quis ut elit amet esse ad officia dolor aliqua eiusmod voluptate consectetur sunt laborum pariatur quis tempor ut ad fugiat non enim sint in do sed ad ut in voluptate incididunt nulla dolor eiusmod laborum anim enim eu commodo ut sint nostrud do dolor culpa aliqua ut excepteur laborum irure ut ut culpa in ut do.
+  publish_date: 2019-06-10 07:24:12
