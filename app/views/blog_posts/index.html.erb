@@ -16,8 +16,11 @@
     %>
       <tr>
         <td><%= blog_post.title %></td>
-        <td><%= blog_post.content%> <br> <%= Time.new(2019, 06, 01, 12, 45, 0, "+03:00") %></td>
-        <td><%= blog_post.publish_date %></td>
+        <td><%= blog_post.content%> <br> </td>
+        <td>
+            <%= blog_post.publish_date.strftime("%d.%m.%Y") %> <br>
+            <%= blog_post.publish_date.strftime("%H:%M") %>
+        </td>
         <td><%= link_to 'Show', blog_post %></td>
         <td><%= link_to 'Edit', edit_blog_post_path(blog_post) %> </td>
         <td><%= link_to 'Destroy', blog_post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
