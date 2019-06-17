@@ -36,7 +36,7 @@ gem 'devise', '4.6.2'
 gem 'devise-i18n', '1.8.0'
 gem 'crono', '1.1.2'
 gem 'slim', '4.0.1'
-# gem 'daemons' # not for windows sadly
+gem 'i18n'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
@@ -65,6 +65,7 @@ end
 
 group :production do
   gem 'pg', '0.20.0'
+  gem 'daemons', '1.3.1' # not for windows sadly
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
