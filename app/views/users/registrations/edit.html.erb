@@ -1,4 +1,4 @@
-<h2>Редактировать <%= resource_name.to_s.humanize %></h2>
+<h2>Редактировать Пользователя</h2>
 
 <div class="row">
 
@@ -17,7 +17,7 @@
       </div>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <div>CЖдем подтверждения для: <%= resource.unconfirmed_email %></div>
+        <div>Ждем подтверждения для: <%= resource.unconfirmed_email %></div>
       <% end %>
 
       <div class="field form-group">
@@ -33,7 +33,7 @@
         <%= f.label :password, :class => 'control-label' %> <i>(оставьте пустым, если не собираетесь менять)</i><br />
         <%= f.password_field :password, autocomplete: "new-password", :class => 'form-control' %>
         <% if @minimum_password_length %>
-          <em><%= @minimum_password_length %> символов минимум</em>
+          <em>(<%= @minimum_password_length %> символов минимум)</em>
         <% end %>
       </div>
 
