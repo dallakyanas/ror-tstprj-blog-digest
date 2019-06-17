@@ -28,3 +28,26 @@ https://www.railstutorial.org/book Книга по Рельсам. Можно п
 * Аккуратный и читабельный код
 
 Код необходимо оформить в репозиторий на GitHub с краткой документацией по запуску
+
+## Установка
+
+1. Скачать репозиторий
+```
+$ git clone https://github.com/dallakyanas/ror-tstprj-blog-digest.git
+```
+2. Выполнить
+```
+$ rails db:migrate
+```
+3. Запустить сервер
+```
+$ rails s -e production
+```
+4. Запустить
+```
+    (windows)$ bundle exec crono RAILS_ENV=production
+    (linux)$ bundle exec crono start RAILS_ENV=production
+```
+5. Сайт требует авторизации. Первый зарегистрированный пользователь будет админом. =) Чтобы быть админом нужно иметь Id=1
+
+Почтовый мейлер настроен в :test реально письма никуда не отправляются
