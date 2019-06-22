@@ -7,7 +7,7 @@ class UserMailer < ApplicationMailer
     make_bootstrap_mail(
       to: @user.email,
       # from: 'from@example.com',
-      subject: 'Welcome to Blog-Digest.test',
+      subject: 'Добро пожаловать Blog-Digest.test!',
     )
   end
 

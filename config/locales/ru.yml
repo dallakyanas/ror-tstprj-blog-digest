@@ -1,11 +1,38 @@
 ru:
-  activerecord:
+  devise:
     errors:
+      messages:
+        not_saved:
+          one: "1 SAD error prohibited this %{resource} from being saved:"
+          other: "%{count} errors prohibited this %{resource} from being saved:"
+  activerecord:
+    models:
+      blog_post: 'Статья'
+      user: 'Пользователь'
+    attributes:
+      blog_post:
+        title: 'Название'
+        content: 'Содержимое'
+        publish_date: 'Дата публикации'
+        created_at: 'Создано'
+        updated_at: 'Обновлено'
+      user:
+        email: 'E-mail'
+        created_at: 'Дата создания'
+        updated_at: 'Дата обновления'
+        subscription_type: 'Тип подписки'
       messages:
         record_invalid: 'Возникли ошибки: %{errors}'
         restrict_dependent_destroy:
           has_one: 'Невозможно удалить запись, так как существует зависимость: %{record}'
           has_many: 'Невозможно удалить запись, так как существуют зависимости: %{record}'
+    errors:
+      messages:
+        not_saved:
+          one: '%{resource}: сохранение не удалось из-за %{count} ошибки'
+          few: "%{resource}: сохранение не удалось из-за %{count} ошибок:"
+          many: "%{resource}: сохранение не удалось из-за %{count} ошибок:"
+          other: "%{resource}: сохранение не удалось из-за %{count} ошибки"
   date:
     abbr_day_names:
     - Вс
