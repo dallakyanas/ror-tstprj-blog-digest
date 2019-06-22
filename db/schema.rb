@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_15_193829) do
+ActiveRecord::Schema.define(version: 2019_06_22_190405) do
+
+  create_table "actions", force: :cascade do |t|
+    t.string "controller_name"
+    t.string "action_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["controller_name", "action_name"], name: "index_actions_on_controller_name_and_action_name", unique: true
+  end
 
   create_table "blog_posts", force: :cascade do |t|
     t.string "title"
@@ -28,6 +36,14 @@ ActiveRecord::Schema.define(version: 2019_06_15_193829) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["job_id"], name: "index_crono_jobs_on_job_id", unique: true
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "name"
+    t.string "code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["code"], name: "index_roles_on_code", unique: true
   end
 
   create_table "users", force: :cascade do |t|

@@ -9,6 +9,9 @@ ru:
     models:
       blog_post: 'Статья'
       user: 'Пользователь'
+      role: 'Группа доступа'
+      action: 'Действие в приложении'
+      role_right: 'Разрешение для группы доступа'
     attributes:
       blog_post:
         title: 'Название'
@@ -21,6 +24,15 @@ ru:
         created_at: 'Дата создания'
         updated_at: 'Дата обновления'
         subscription_type: 'Тип подписки'
+      role:
+        name: "Наименование роли"
+        code: "Код"
+      action:
+        controller_name: "Контролллер"
+        action_name: "Метод"
+      role_right:
+        role: "Группа доступа"
+        action: "Действие"
       messages:
         record_invalid: 'Возникли ошибки: %{errors}'
         restrict_dependent_destroy:
