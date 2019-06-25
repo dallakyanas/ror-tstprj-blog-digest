@@ -2,8 +2,10 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   enum subscription_type: [:no, :daily, :weekly]
-  devise :database_authenticatable, :registerable,
-         :rememberable, :validatable
+  devise :database_authenticatable,
+         :registerable,
+         :rememberable,
+         :validatable
 
   after_create :send_welcome_email
   after_initialize :init
