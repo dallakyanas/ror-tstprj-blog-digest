@@ -21,6 +21,7 @@ ru:
         updated_at: 'Обновлено'
       user:
         email: 'E-mail'
+        role_id: 'Группа доступа'
         created_at: 'Дата создания'
         updated_at: 'Дата обновления'
         subscription_type: 'Тип подписки'

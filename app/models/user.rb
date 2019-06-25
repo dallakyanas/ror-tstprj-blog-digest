@@ -2,6 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   enum subscription_type: [:no, :daily, :weekly]
+  belongs_to :role
   devise :database_authenticatable,
          :registerable,
          :rememberable,
@@ -13,6 +14,7 @@ class User < ApplicationRecord
 
   def init
     self.subscription_type ||= :weekly
+    self.role_id ||= Role.where(code: 'RL_VIEWER').first.id
   end
 
 
