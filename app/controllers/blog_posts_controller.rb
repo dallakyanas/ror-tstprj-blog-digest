@@ -1,6 +1,6 @@
 class BlogPostsController < ApplicationController
   before_action :set_blog_post, only: [:show, :edit, :update, :destroy]
-  before_action :check_access, only: [:edit, :update, :destroy]
+  before_action :has_access, only: [:edit, :update, :new, :create, :destroy]
 
   # GET /blog_posts
   # GET /blog_posts.json
@@ -29,7 +29,7 @@ class BlogPostsController < ApplicationController
 
     respond_to do |format|
       if @blog_post.save
-        format.html { redirect_to @blog_post, notice: 'Blog post was successfully created.' }
+        format.html { redirect_to @blog_post, notice: 'Статья успешно создана.' }
         format.json { render :show, status: :created, location: @blog_post }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class BlogPostsController < ApplicationController
   def update
     respond_to do |format|
       if @blog_post.update(blog_post_params)
-        format.html { redirect_to @blog_post, notice: 'Blog post was successfully updated.' }
+        format.html { redirect_to @blog_post, notice: 'Статья успешно обновлена.' }
         format.json { render :show, status: :ok, location: @blog_post }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class BlogPostsController < ApplicationController
   def destroy
     @blog_post.destroy
     respond_to do |format|
-      format.html { redirect_to blog_posts_url, notice: 'Blog post was successfully destroyed.' }
+      format.html { redirect_to blog_posts_url, notice: 'Статья успешно удалена' }
       format.json { head :no_content }
     end
   end
@@ -76,7 +76,7 @@ class BlogPostsController < ApplicationController
     def check_access
       if !current_user or !current_user.is_admin?
         respond_to do |format|
-          format.html { redirect_to blog_posts_url, alert: 'Permission denied' }
+          format.html { redirect_to blog_posts_url, alert: 'Доступ запрещен' }
           format.json { head :no_content }
         end
       end

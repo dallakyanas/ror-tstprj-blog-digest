@@ -20,7 +20,7 @@
             </div>
             <ul class="nav navbar-nav">
               <li><%= link_to "Новости", root_path %></li>
-              <% if current_user && current_user.is_admin? %>
+              <% if current_user %>
                 <li><%= link_to "Пользователи", users_path %></li>
               <% end %>
             </ul>

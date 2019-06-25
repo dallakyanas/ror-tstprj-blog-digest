@@ -18,21 +18,10 @@ ac_blog_posts_create = Action.create(controller_name: 'blog_posts', action_name:
 ac_blog_posts_update = Action.create(controller_name: 'blog_posts', action_name: 'update');
 ac_blog_posts_destroy = Action.create(controller_name: 'blog_posts', action_name: 'destroy');
 
-# Action.create(controller_name: 'users/registrations', action_name: 'new');
-# Action.create(controller_name: 'users/registrations', action_name: 'edit');
-# Action.create(controller_name: 'users/registrations', action_name: 'create');
-# Action.create(controller_name: 'users/registrations', action_name: 'update');
-# Action.create(controller_name: 'users/registrations', action_name: 'destroy');
-
-# Action.create(controller_name: 'devise/sessions', action_name: 'new');
-# Action.create(controller_name: 'devise/sessions', action_name: 'create');
-# Action.create(controller_name: 'devise/sessions', action_name: 'destroy');
-
-
-# скопируем все права RL_VIEWER для RL_AUTHOR
-# RoleRight.where(role_id: rl_viewer.id).each do |rr|
-#   RoleRight.create(role_id: rl_author.id, action_id: rr.action_id);
-# end
+ac_users_index = Action.create(controller_name: 'users', action_name: 'index');
+ac_users_show_grants = Action.create(controller_name: 'users', action_name: 'show_grants');
+ac_users_set_grants = Action.create(controller_name: 'users', action_name: 'set_grants');
+ac_users_destroy = Action.create(controller_name: 'users', action_name: 'destroy');
 
 RoleRight.create(role_id: rl_author.id, action_id: ac_blog_posts_new.id);
 RoleRight.create(role_id: rl_author.id, action_id: ac_blog_posts_edit.id);
@@ -44,3 +33,14 @@ RoleRight.create(role_id: rl_author.id, action_id: ac_blog_posts_destroy.id);
 RoleRight.where(role_id: rl_author.id).each do |rr|
   RoleRight.create(role_id: rl_admin.id, action_id: rr.action_id);
 end
+
+RoleRight.create(role_id: rl_admin.id, action_id: ac_users_index.id);
+RoleRight.create(role_id: rl_admin.id, action_id: ac_users_show_grants.id);
+RoleRight.create(role_id: rl_admin.id, action_id: ac_users_set_grants.id);
+RoleRight.create(role_id: rl_admin.id, action_id: ac_users_destroy.id);
+
+User.create(email: 'super@test.com', role_id: rl_admin.id, password: '123456', password_confirmation: '123456')
+User.create(email: 'auth@test.com', role_id: rl_author.id, password: '123456', password_confirmation: '123456')
+User.create(email: 'view@test.com', role_id: rl_viewer.id, password: '123456', password_confirmation: '123456')
+
+

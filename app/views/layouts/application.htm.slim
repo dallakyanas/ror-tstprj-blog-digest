@@ -19,6 +19,9 @@ html
             ul class="nav navbar-nav">
               li
                 == link_to "Новости", root_path
+              - if current_user
+                li
+                  == link_to "Пользователи", users_path
 
             ul class="nav navbar-nav navbar-right"
               - if user_signed_in?
