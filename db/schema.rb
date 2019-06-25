@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_22_190405) do
+ActiveRecord::Schema.define(version: 2019_06_22_190624) do
 
   create_table "actions", force: :cascade do |t|
     t.string "controller_name"
@@ -36,6 +36,16 @@ ActiveRecord::Schema.define(version: 2019_06_22_190405) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["job_id"], name: "index_crono_jobs_on_job_id", unique: true
+  end
+
+  create_table "role_rights", force: :cascade do |t|
+    t.integer "role_id"
+    t.integer "action_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["action_id"], name: "index_role_rights_on_action_id"
+    t.index ["role_id", "action_id"], name: "index_role_rights_on_role_id_and_action_id", unique: true
+    t.index ["role_id"], name: "index_role_rights_on_role_id"
   end
 
   create_table "roles", force: :cascade do |t|

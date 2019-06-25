@@ -6,6 +6,6 @@ class CreateRoleRights < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
-    add_index :role_rights, [:role, :action], :unique => true
+    add_index :role_rights, [:role_id, :action_id], :unique => true
   end
 end
