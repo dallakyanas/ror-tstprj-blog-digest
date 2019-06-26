@@ -39,8 +39,9 @@ RoleRight.create(role_id: rl_admin.id, action_id: ac_users_show_grants.id);
 RoleRight.create(role_id: rl_admin.id, action_id: ac_users_set_grants.id);
 RoleRight.create(role_id: rl_admin.id, action_id: ac_users_destroy.id);
 
-User.create(email: 'super@test.com', role_id: rl_admin.id, password: '123456', password_confirmation: '123456')
-User.create(email: 'auth@test.com', role_id: rl_author.id, password: '123456', password_confirmation: '123456')
-User.create(email: 'view@test.com', role_id: rl_viewer.id, password: '123456', password_confirmation: '123456')
+User.create(email: 'super@test.com', name: 'Администратор А. А.', role_id: rl_admin.id, password: '123456', password_confirmation: '123456')
+User.create(email: 'auth1@test.com', name: 'Автор-Авторитетный А. А.', role_id: rl_author.id, password: '123456', password_confirmation: '123456')
+User.create(email: 'auth2@test.com', name: 'Второй А. А.', role_id: rl_author.id, password: '123456', password_confirmation: '123456')
+User.create(email: 'view@test.com', name: 'Читатель Н. М.', role_id: rl_viewer.id, password: '123456', password_confirmation: '123456')
 
 
