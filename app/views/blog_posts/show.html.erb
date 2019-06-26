@@ -17,8 +17,8 @@
 </div>
 <div class="row">
   <div class="col-sm-3 col-sm-offset-1 col-md-offset-2">
-    <% if current_user %>
-      <%= link_to 'Назад', blog_posts_path, :class => "btn btn-primary" %>
+    <%= link_to 'Назад', blog_posts_path, :class => "btn btn-primary" %>
+    <% if has_access('blog_posts', 'edit') %>
       <%= link_to 'Редактировать', edit_blog_post_path(@blog_post), :class => "btn btn-success" %>
     <% end %>
 
