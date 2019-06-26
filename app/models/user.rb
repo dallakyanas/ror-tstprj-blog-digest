@@ -26,4 +26,9 @@ class User < ApplicationRecord
   def send_welcome_email
     UserMailer.with(user: self).welcome_email.deliver_later
   end
+
+
+  def is_superuser
+    return self.role.code == 'RL_ADMIN'  # глобальная константа?
+  end
 end

@@ -31,12 +31,14 @@
 
 </div>
 <div class="row">
-  <div class="col-sm-3 col-sm-offset-1 col-md-offset-2">
+  <div class="col-sm-8 col-sm-offset-1 col-md-7 col-md-offset-2">
     <%= link_to 'Назад', blog_posts_path, :class => "btn btn-primary" %>
-    <% if has_access('blog_posts', 'edit') %>
+    <% if has_access('blog_posts', 'edit') && is_owner(@blog_post) || current_user.is_superuser %>
       <%= link_to 'Редактировать', edit_blog_post_path(@blog_post), :class => "btn btn-success" %>
     <% end %>
-
+    <% if has_access('blog_posts', 'destroy')  && is_owner(@blog_post) || current_user.is_superuser %>
+      <%= link_to 'Удалить', @blog_post, method: :delete, data: { confirm: 'Удалить запись?' }, :class => "btn btn-warning" %>
+    <% end %>
   </div>
 </div>
 

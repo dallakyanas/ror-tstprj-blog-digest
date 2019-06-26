@@ -1,6 +1,9 @@
 class BlogPostsController < ApplicationController
   before_action :set_blog_post, only: [:show, :edit, :update, :destroy]
   before_action :check_access, only: [:edit, :update, :new, :create, :destroy]
+  before_action :check_owner, only: [:edit, :update, :destroy]
+
+  include BlogPostsHelper
 
   # GET /blog_posts
   # GET /blog_posts.json
@@ -72,5 +75,12 @@ class BlogPostsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_post_params
       params.require(:blog_post).permit(:title, :content, :publish_date)
+    end
+
+    def check_owner
+      unless is_owner(@blog_post) || (action_name =='destroy' && current_user.is_superuser)
+        flash[:alert] = "Запрещено редактировать чужой контент"
+        redirect_to  root_url
+      end
     end
 end
