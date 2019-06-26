@@ -11,4 +11,9 @@ module ApplicationHelper
 
     return access_granted
   end
+
+
+  def is_superuser
+    return current_user && current_user.is_superuser
+  end
 end
