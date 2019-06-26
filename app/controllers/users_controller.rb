@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:destroy, :show_grants, :set_grants]
-  before_action :has_access, only: [:index,:show_grants, :set_grants, :destroy]
+  before_action :check_access, only: [:index,:show_grants, :set_grants, :destroy]
 
   # GET /users
   # GET /users.json

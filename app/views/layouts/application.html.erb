@@ -16,11 +16,10 @@
           <div class="container-fluid">
             <div class="navbar-header">
               <%= link_to "Блог", root_path, :class => 'navbar-brand'%>
-              <!-- <a class="navbar-brand" href="#">SampleApp</a> -->
             </div>
             <ul class="nav navbar-nav">
               <li><%= link_to "Новости", root_path %></li>
-              <% if current_user %>
+              <% if has_access('users', 'index') %>
                 <li><%= link_to "Пользователи", users_path %></li>
               <% end %>
             </ul>

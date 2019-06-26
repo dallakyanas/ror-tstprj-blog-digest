@@ -1,6 +1,6 @@
 class BlogPostsController < ApplicationController
   before_action :set_blog_post, only: [:show, :edit, :update, :destroy]
-  before_action :has_access, only: [:edit, :update, :new, :create, :destroy]
+  before_action :check_access, only: [:edit, :update, :new, :create, :destroy]
 
   # GET /blog_posts
   # GET /blog_posts.json
@@ -71,14 +71,5 @@ class BlogPostsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_post_params
       params.require(:blog_post).permit(:title, :content, :publish_date)
-    end
-
-    def check_access
-      if !current_user or !current_user.is_admin?
-        respond_to do |format|
-          format.html { redirect_to blog_posts_url, alert: 'Доступ запрещен' }
-          format.json { head :no_content }
-        end
-      end
     end
 end
