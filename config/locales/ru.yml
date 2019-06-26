@@ -19,12 +19,14 @@ ru:
         publish_date: 'Дата публикации'
         created_at: 'Создано'
         updated_at: 'Обновлено'
+        user_id: 'Автор'
       user:
         email: 'E-mail'
         role_id: 'Группа доступа'
         created_at: 'Дата создания'
         updated_at: 'Дата обновления'
         subscription_type: 'Тип подписки'
+        name: 'Имя'
       role:
         name: "Наименование роли"
         code: "Код"

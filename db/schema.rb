@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_25_184021) do
+ActiveRecord::Schema.define(version: 2019_06_26_212523) do
 
   create_table "actions", force: :cascade do |t|
     t.string "controller_name"
@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 2019_06_25_184021) do
     t.datetime "publish_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_blog_posts_on_user_id"
   end
 
   create_table "crono_jobs", force: :cascade do |t|
@@ -66,6 +68,7 @@ ActiveRecord::Schema.define(version: 2019_06_25_184021) do
     t.datetime "updated_at", null: false
     t.integer "subscription_type"
     t.integer "role_id"
+    t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["role_id"], name: "index_users_on_role_id"

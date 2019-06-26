@@ -3,7 +3,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   enum subscription_type: [:no, :daily, :weekly]
   belongs_to :role
+  has_many :blog_posts
+
   validates :role, presence: true
+  validates :name, presence: true
+
   devise :database_authenticatable,
          :registerable,
          :rememberable,
