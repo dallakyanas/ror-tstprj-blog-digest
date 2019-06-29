@@ -4,6 +4,7 @@ class User < ApplicationRecord
   enum subscription_type: [:no, :daily, :weekly]
   belongs_to :role
   has_many :blog_posts
+  has_many :post_comments
 
   validates :role, presence: true
   validates :name, presence: true

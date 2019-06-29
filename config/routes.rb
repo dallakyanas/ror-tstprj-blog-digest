@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {registrations: 'users/registrations'}
-  resources :blog_posts
-  resources :users
+
+  resources :blog_posts, :post_comments, :users
   resources :users do
     member do
       get :show_grants

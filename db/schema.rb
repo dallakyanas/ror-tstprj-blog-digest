@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_26_212523) do
+ActiveRecord::Schema.define(version: 2019_06_29_054529) do
 
   create_table "actions", force: :cascade do |t|
     t.string "controller_name"
@@ -38,6 +38,16 @@ ActiveRecord::Schema.define(version: 2019_06_26_212523) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["job_id"], name: "index_crono_jobs_on_job_id", unique: true
+  end
+
+  create_table "post_comments", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "blog_post_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["blog_post_id"], name: "index_post_comments_on_blog_post_id"
+    t.index ["user_id"], name: "index_post_comments_on_user_id"
   end
 
   create_table "role_rights", force: :cascade do |t|
