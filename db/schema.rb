@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_29_054529) do
+ActiveRecord::Schema.define(version: 2019_06_29_195937) do
 
   create_table "actions", force: :cascade do |t|
     t.string "controller_name"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 2019_06_29_054529) do
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["blog_post_id", "created_at"], name: "index_post_comments_on_blog_post_id_and_created_at"
     t.index ["blog_post_id"], name: "index_post_comments_on_blog_post_id"
     t.index ["user_id"], name: "index_post_comments_on_user_id"
   end
