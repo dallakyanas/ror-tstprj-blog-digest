@@ -12,6 +12,7 @@ ru:
       role: 'Группа доступа'
       action: 'Действие в приложении'
       role_right: 'Разрешение для группы доступа'
+      post_comment: 'Комментарий'
     attributes:
       blog_post:
         title: 'Название'
@@ -36,6 +37,10 @@ ru:
       role_right:
         role: "Группа доступа"
         action: "Действие"
+      post_comment:
+        user_id: 'Автор'
+        blog_post_id: 'Статья'
+        content: 'Содержимое'
       messages:
         record_invalid: 'Возникли ошибки: %{errors}'
         restrict_dependent_destroy:
