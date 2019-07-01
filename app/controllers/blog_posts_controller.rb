@@ -8,13 +8,17 @@ class BlogPostsController < ApplicationController
   # GET /blog_posts
   # GET /blog_posts.json
   def index
-    @blog_posts = BlogPost.all.order(publish_date: :desc)
+    @blog_posts = BlogPost.all.
+                           order(publish_date: :desc).
+                           paginate(page: params[:page], per_page: 5)
   end
 
   # GET /blog_posts/1
   # GET /blog_posts/1.json
   def show
-    @post_comments = @blog_post.post_comments.all.order(created_at: :desc)
+    @post_comments = @blog_post.post_comments.all.
+                                order(created_at: :desc).
+                                paginate(page: params[:page], per_page: 5)
   end
 
   # GET /blog_posts/new

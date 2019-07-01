@@ -14,9 +14,9 @@ class PostCommentsController < ApplicationController
 
     respond_to do |format|
       if @post_comment.save
-         format.html{ redirect_to request.referrer || root_url}
+        format.html{ redirect_to request.referrer || root_url}
       else
-        format.html { render :new }
+        format.html{ redirect_to request.referrer || root_url}
       end
     end
   end

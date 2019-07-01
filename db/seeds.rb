@@ -14,9 +14,9 @@ ac_post_comments_create = Action.create(controller_name: 'post_comments', action
 ac_post_comments_update = Action.create(controller_name: 'post_comments', action_name: 'update');
 ac_post_comments_destroy = Action.create(controller_name: 'post_comments', action_name: 'destroy');
 
-RoleRight.create(role_id: rl_author.id, action_id: ac_post_comments_create.id);
-RoleRight.create(role_id: rl_author.id, action_id: ac_post_comments_update.id);
-RoleRight.create(role_id: rl_author.id, action_id: ac_post_comments_destroy.id);
+RoleRight.create(role_id: rl_viewer.id, action_id: ac_post_comments_create.id);
+RoleRight.create(role_id: rl_viewer.id, action_id: ac_post_comments_update.id);
+RoleRight.create(role_id: rl_viewer.id, action_id: ac_post_comments_destroy.id);
 
 # скопируем все права RL_VIEWER для RL_AUTHOR
 RoleRight.where(role_id: rl_viewer.id).each do |rr|

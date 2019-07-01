@@ -46,10 +46,12 @@
   <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-5">
     <% if @blog_post.post_comments.any? %>
       <hr>
-      <h5>Комментарии <span class="badge"><%= @blog_post.post_comments.count %></span></h5>
+      <h5>Комментарии [<%= @blog_post.post_comments.count %>] </h5>
+      <%= will_paginate @post_comments %>
       <div class="post_comments">
         <%= render @post_comments %>
       </div>
+      <%= will_paginate @post_comments %>
     <% end %>
   </div>
 </div>

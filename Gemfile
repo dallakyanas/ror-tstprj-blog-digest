@@ -37,6 +37,8 @@ gem 'devise-i18n', '1.8.0'
 gem 'crono', '1.1.2'
 gem 'slim', '4.0.1'
 gem 'i18n'
+gem 'will_paginate',           '3.1.7'
+gem 'bootstrap-will_paginate', '1.0.0'
 
 group :development, :test do
   gem 'sqlite3', '1.3.13'
