@@ -10,8 +10,19 @@ rl_admin = Role.create(name: 'Админ', code: 'RL_ADMIN');
 rl_author = Role.create(name: 'Автор', code: 'RL_AUTHOR');
 rl_viewer = Role.create(name: 'Читатель', code: 'RL_VIEWER');
 
-# Action.create(controller_name: 'blog_posts', action_name: 'index');
-# Action.create(controller_name: 'blog_posts', action_name: 'show');
+ac_post_comments_create = Action.create(controller_name: 'post_comments', action_name: 'create');
+ac_post_comments_update = Action.create(controller_name: 'post_comments', action_name: 'update');
+ac_post_comments_destroy = Action.create(controller_name: 'post_comments', action_name: 'destroy');
+
+RoleRight.create(role_id: rl_author.id, action_id: ac_post_comments_create.id);
+RoleRight.create(role_id: rl_author.id, action_id: ac_post_comments_update.id);
+RoleRight.create(role_id: rl_author.id, action_id: ac_post_comments_destroy.id);
+
+# скопируем все права RL_VIEWER для RL_AUTHOR
+RoleRight.where(role_id: rl_viewer.id).each do |rr|
+  RoleRight.create(role_id: rl_author.id, action_id: rr.action_id);
+end
+
 ac_blog_posts_new = Action.create(controller_name: 'blog_posts', action_name: 'new');
 ac_blog_posts_edit = Action.create(controller_name: 'blog_posts', action_name: 'edit');
 ac_blog_posts_create = Action.create(controller_name: 'blog_posts', action_name: 'create');
@@ -43,5 +54,3 @@ User.create(email: 'super@test.com', name: 'Администратор А. А.',
 User.create(email: 'auth1@test.com', name: 'Автор-Авторитетный А. А.', role_id: rl_author.id, password: '123456', password_confirmation: '123456')
 User.create(email: 'auth2@test.com', name: 'Второй А. А.', role_id: rl_author.id, password: '123456', password_confirmation: '123456')
 User.create(email: 'view@test.com', name: 'Читатель Н. М.', role_id: rl_viewer.id, password: '123456', password_confirmation: '123456')
-
-

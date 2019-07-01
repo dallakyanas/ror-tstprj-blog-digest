@@ -54,25 +54,26 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-5">
-    <hr>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <strong><%= current_user.name%></strong>
-      </div>
-      <div class="panel-body">
-        <%= form_for([@blog_post, @blog_post.post_comments.build]) do |form| %>
-          <div class="field form-group">
-            <%= form.text_area :content, :rows => 3, :class => 'form-control' %>
-          </div>
+<% if has_access('post_comments', 'create') %>
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-5">
+      <hr>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <strong><%= current_user.name%></strong>
+        </div>
+        <div class="panel-body">
+          <%= form_for([@blog_post, @blog_post.post_comments.build]) do |form| %>
+            <div class="field form-group">
+              <%= form.text_area :content, :rows => 3, :class => 'form-control' %>
+            </div>
 
-          <div class="actions">
-            <%= form.submit "Сохранить", :class => 'btn btn-success pull-right' %>
-          </div>
-        <% end # loop %>
+            <div class="actions">
+              <%= form.submit "Сохранить", :class => 'btn btn-success pull-right' %>
+            </div>
+          <% end # loop %>
+        </div>
       </div>
     </div>
   </div>
-
-</div>
+<% end %>
