@@ -33,7 +33,7 @@
 <div class="row">
   <div class="col-sm-8 col-sm-offset-1 col-md-7 col-md-offset-2">
     <%= link_to 'Назад', blog_posts_path, :class => "btn btn-primary" %>
-    <% if has_access('blog_posts', 'edit') && is_owner(@blog_post) || is_superuser %>
+    <% if has_access('blog_posts', 'edit') && is_owner(@blog_post) %>
       <%= link_to 'Редактировать', edit_blog_post_path(@blog_post), :class => "btn btn-success" %>
     <% end %>
     <% if has_access('blog_posts', 'destroy')  && is_owner(@blog_post) || is_superuser %>
@@ -46,7 +46,7 @@
   <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-5">
     <% if @blog_post.post_comments.any? %>
       <hr>
-      <h5>Комментарии [<%= @blog_post.post_comments.count %>] </h5>
+      <h5>Комментарии [<%= @blog_post.post_comments.count %>] </h5><br/>
       <%= will_paginate @post_comments %>
       <div class="post_comments">
         <%= render @post_comments %>
@@ -60,22 +60,8 @@
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-5">
       <hr>
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <strong><%= current_user.name%></strong>
-        </div>
-        <div class="panel-body">
-          <%= form_for([@blog_post, @blog_post.post_comments.build]) do |form| %>
-            <div class="field form-group">
-              <%= form.text_area :content, :rows => 3, :class => 'form-control' %>
-            </div>
-
-            <div class="actions">
-              <%= form.submit "Сохранить", :class => 'btn btn-success pull-right' %>
-            </div>
-          <% end # loop %>
-        </div>
-      </div>
+      <%= render 'post_comments/form', blog_post: @blog_post,
+                                       post_comment: @blog_post.post_comments.build %>
     </div>
   </div>
 <% end %>

@@ -1,0 +1,13 @@
+<h1>Редактировать Комментарий</h1>
+<div class="row">
+  <div class="col-sm-10 col-sm-offset-1 col-md-5 col-md-offset-1">
+    <%= render 'post_comments/form', blog_post: @post_comment.blog_post,
+                                     post_comment: @post_comment %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-10 col-sm-offset-1 col-md-5 col-md-offset-1">
+    <br>
+    <%= link_to 'Отмена', request.referrer || root_url, :class => "btn btn-primary" %>
+  </div>
+</div>

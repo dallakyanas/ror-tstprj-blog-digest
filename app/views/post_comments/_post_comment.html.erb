@@ -6,6 +6,23 @@
     <div class="panel-body">
       <%= post_comment.content %>
     </div>
+    <div class="panel-body">
+      <% if has_access('post_comments', 'update') && is_owner(post_comment) %>
+        <%= link_to 'Редактировать',
+                    edit_blog_post_post_comment_path(id: post_comment, blog_post_id: post_comment.blog_post),
+                      :class => "btn btn-success" %>
+      <% end %>
+
+      <% if has_access('post_comments', 'destroy')  && is_owner(post_comment) || is_superuser %>
+        <%= link_to 'Удалить',
+                    blog_post_post_comment_path(id: post_comment, blog_post_id: post_comment.blog_post),
+                    method: :delete,
+                    data: { confirm: 'Удалить запись?' },
+                    :class => "btn btn-warning"%>
+      <% end %>
+    </div>
   </div>
+
+
 </div>
 

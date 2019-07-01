@@ -1,11 +1,11 @@
 class PostCommentsController < ApplicationController
-  before_action :set_post_comment, only: [:update, :destroy]
-  before_action :check_access, only: [:update, :create, :destroy]
-  before_action :check_owner, only: [:update, :destroy]
+  before_action :set_post_comment, only: [:edit, :update, :destroy]
+  before_action :check_access, only: [:edit, :update, :create, :destroy]
+  before_action :check_owner, only: [:edit, :update, :destroy]
 
   include BlogPostsHelper
 
-  # POST /post_comments
+  # POST   /blog_posts/:blog_post_id/post_comments
   def create
     @blog_post = BlogPost.find(params[:blog_post_id])
 
@@ -21,22 +21,27 @@ class PostCommentsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /post_comments/1
+  # /blog_posts/:blog_post_id/post_comments/:id/edit
+  def edit
+    session[:return_to] ||= request.referer
+  end
+
+  # PATCH/PUT /blog_posts/:blog_post_id/post_comments/:id
   def update
     respond_to do |format|
       if @post_comment.update(post_comment_params)
-        format.html { redirect_to @post_comment, notice: 'Комментарий успешно обновлен' }
+        format.html{ redirect_to session.delete(:return_to) || root_url}
       else
-        format.html { render :edit }
+        format.html{ redirect_to session.delete(:return_to) || root_url}
       end
     end
   end
 
-  # DELETE /post_comments/1
+  # DELETE /blog_posts/:blog_post_id/post_comments/:id
   def destroy
     @post_comment.destroy
     respond_to do |format|
-      format.html { redirect_to post_comments_url, notice: 'Комментарий успешно удален' }
+      format.html{ redirect_to request.referrer || root_url}
     end
   end
 
