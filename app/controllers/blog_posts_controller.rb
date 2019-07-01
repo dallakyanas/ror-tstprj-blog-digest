@@ -14,6 +14,7 @@ class BlogPostsController < ApplicationController
   # GET /blog_posts/1
   # GET /blog_posts/1.json
   def show
+    @post_comments = @blog_post.post_comments.all.order(created_at: :desc)
   end
 
   # GET /blog_posts/new

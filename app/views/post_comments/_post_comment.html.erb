@@ -1,0 +1,11 @@
+<div id="post_comment-<%= post_comment.id %>">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <strong><%= post_comment.user.name%></strong><span class="glyphicon glyphicon-time"></span> <span class="text-muted"><%= post_comment.created_at.strftime("%d.%m.%Y %H:%M") %></span>
+    </div>
+    <div class="panel-body">
+      <%= post_comment.content %>
+    </div>
+  </div>
+</div>
+

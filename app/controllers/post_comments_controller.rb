@@ -1,37 +1,20 @@
 class PostCommentsController < ApplicationController
-  before_action :set_post_comment, only: [:show, :edit, :update, :destroy]
-  before_action :check_access, only: [:edit, :update, :new, :create, :destroy]
-  before_action :check_owner, only: [:edit, :update, :destroy]
+  before_action :set_post_comment, only: [:update, :destroy]
+  before_action :check_access, only: [:update, :create, :destroy]
+  before_action :check_owner, only: [:update, :destroy]
 
   include BlogPostsHelper
 
-  # GET /post_comments
-  def index
-    # TODO: только для текущего поста?
-    @post_comments = PostComment.all.order(publish_date: :desc)
-  end
-
-  # GET /post_comments/1
-  def show
-  end
-
-  # GET /post_comments/new
-  def new
-    @post_comment = PostComment.new
-  end
-
-  # GET /post_comments/1/edit
-  def edit
-  end
-
   # POST /post_comments
   def create
-    @post_comment = PostComment.new(post_comment_params)
+    @blog_post = BlogPost.find(params[:blog_post_id])
+
+    @post_comment = @blog_post.post_comments.create(post_comment_params)
     @post_comment.user_id = current_user.id
 
     respond_to do |format|
       if @post_comment.save
-        format.html { redirect_to @post_comment, notice: 'Комментарий успешно добавлен' }
+         format.html{ redirect_to request.referrer || root_url}
       else
         format.html { render :new }
       end
