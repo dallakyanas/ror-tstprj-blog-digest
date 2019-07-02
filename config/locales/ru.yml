@@ -39,8 +39,8 @@ ru:
         controller_name: "Контролллер"
         action_name: "Метод"
       role_right:
-        role: "Группа доступа"
-        action: "Действие"
+        role_id: "Группа доступа"
+        action_id: "Действие"
       post_comment:
         user_id: 'Автор'
         blog_post_id: 'Статья'
