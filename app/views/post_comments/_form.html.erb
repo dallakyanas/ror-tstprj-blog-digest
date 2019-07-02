@@ -4,6 +4,18 @@
   </div>
   <div class="panel-body">
     <%= form_for([blog_post, post_comment]) do |form| %>
+      <% if post_comment.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(post_comment.errors.count, "ошибок") %> обнаружено в процессе сохранения :</h2>
+
+          <ul>
+          <% post_comment.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
       <div class="field form-group">
         <%= form.text_area :content, :rows => 3, :class => 'form-control' %>
       </div>

@@ -16,7 +16,9 @@ class PostCommentsController < ApplicationController
       if @post_comment.save
         format.html{ redirect_to request.referrer || root_url}
       else
-        format.html{ redirect_to request.referrer || root_url}
+        # format.html{ redirect_to request.referrer || root_url}
+        format.html{ redirect_to @post_comment.blog_post,
+                     :alert => 'Не удалось добавить комментарий'}
       end
     end
   end
@@ -32,7 +34,8 @@ class PostCommentsController < ApplicationController
       if @post_comment.update(post_comment_params)
         format.html{ redirect_to session.delete(:return_to) || root_url}
       else
-        format.html{ redirect_to session.delete(:return_to) || root_url}
+        format.html { render :edit }
+        # format.html{ redirect_to session.delete(:return_to) || root_url}
       end
     end
   end
