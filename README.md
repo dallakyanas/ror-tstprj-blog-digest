@@ -42,7 +42,7 @@ $ git clone https://github.com/dallakyanas/ror-tstprj-blog-digest.git
 $ rails db:schema:load
 ```
 
-2. Выполнить
+3. Выполнить
 ```
 $ rails db:seed
 ```
