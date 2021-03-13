@@ -4,7 +4,7 @@
 
 https://www.railstutorial.org/book Книга по Рельсам. Можно прочитать главы 1-2 и главу про тестирование.
 
-Установка рельсов на винду через подпистему: https://gorails.com/setup/windows/10. Если не 10-ая, то http://railsinstaller.org/ru-RU версия руби 2.3
+Установка рельсов на винду через подcистему: https://gorails.com/setup/windows/10. Если не 10-ая, то http://railsinstaller.org/ru-RU версия руби 2.3
 
 Тестовое задание:
 Разработать функционал рассылки и блога:
